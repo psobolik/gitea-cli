@@ -1,0 +1,17 @@
+[package]
+name = "gt"
+version = "0.1.0"
+edition = "2021"
+authors = ["Paul Sobolik <psobolik@zoho.com>"]
+description = "A command line interface to Gitea"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.5.0", features = ["cargo"] }
+colored = "2.1.0"
+git-lib = { version = "0.1.0", path = "git-lib" }
+gitea-api = { version = "0.1.0", path = "gitea-api" }
+open = "5.0.1"
+serde = "1.0.196"
+tokio = { version = "1.0.0", features = ["rt", "rt-multi-thread", "macros"] }

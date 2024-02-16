@@ -1,0 +1,6 @@
+[submodule "gitea-api"]
+	path = gitea-api
+	url = .\\gitea-api\\
+[submodule "git-lib"]
+	path = git-lib
+	url = .\\git-lib\\
