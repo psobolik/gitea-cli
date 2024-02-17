@@ -4,6 +4,5 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/git-lib" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/gitea-api" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/junkyard/gitea-api-backup" vcs="Git" />
   </component>
 </project>

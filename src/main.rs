@@ -128,9 +128,15 @@ fn get_clap_builder_command() -> Command {
         Command::new("repo")
             .about("Work with Gitea repositories")
             .arg_required_else_help(true)
-            .subcommand(Command::new("browse").arg(&remote_arg).arg(&path_arg))
+            .subcommand(
+                Command::new("browse")
+                    .about("Open the remote repository in a browser")
+                    .arg(&remote_arg)
+                    .arg(&path_arg),
+            )
             .subcommand(
                 Command::new("create")
+                    .about("Create a new Gitea repository and track it locally")
                     .arg(path_arg)
                     .arg(gitea_url_arg)
                     .arg(description_arg)
