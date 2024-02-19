@@ -105,10 +105,6 @@ fn get_clap_builder_command() -> Command {
         .short('d')
         .long("description");
 
-    let issue_labels_arg = Arg::new("issue_labels")
-        .help("Issue labels")
-        .long("issue-labels");
-
     let private_arg = Arg::new("private")
         .help("Make repository private")
         .long("private")
@@ -146,7 +142,6 @@ fn get_clap_builder_command() -> Command {
                     .arg(private_arg)
                     .arg(template_arg)
                     .arg(trust_model_arg)
-                    .arg(issue_labels_arg),
             ),
     )
 }
@@ -221,7 +216,6 @@ fn open_git_remote(repo: &str, path: Option<&PathBuf>) {
 
 fn repo_options(name: &str, matches: &ArgMatches) -> CreateRepoOptions {
     let description = matches.get_one::<String>("description");
-    let issue_labels = matches.get_one::<String>("issue_labels");
     let default_branch = matches
         .get_one::<String>("default_branch")
         .expect("Missing default branch");
@@ -242,19 +236,18 @@ fn repo_options(name: &str, matches: &ArgMatches) -> CreateRepoOptions {
         println!("Default branch: {}", default_branch);
         println!("Private:        {}", private);
         println!("Template:       {}", template);
-        println!("Issue labels:   {:?}", issue_labels.map(|x| x.to_string()));
         println!("Trust model:    {}", trust_model);
     */
     CreateRepoOptions::new(
         name.to_string(),                    // name: String,
         default_branch.to_string(),          // default_branch: String,
         trust_model,                         // trust_model: TrustModel,
-        false,                               // auto_init: bool,
+        false,                       // auto_init: bool,
         private,                             // private: bool,
         template,                            // template: bool,
         description.map(|x| x.to_string()),  // description: Option<String>,
         None,                                // gitignores: Option<String>,
-        issue_labels.map(|x| x.to_string()), // issue_labels: Option<String>,
+        None,                                // issue_labels: Option<String>,
         None,                                // license: Option<String>,
         None,                                // readme: Option<String>,
     )
