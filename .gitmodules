@@ -1,6 +1,6 @@
 [submodule "gitea-api"]
 	path = gitea-api
-	url = .\\gitea-api\\
+	url = https://github.com/psobolik/gitea-api.git
 [submodule "git-lib"]
 	path = git-lib
-	url = .\\git-lib\\
+	url = https://github.com/psobolik/git-lib.git
